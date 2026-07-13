@@ -1,0 +1,14 @@
+{
+  "name": "js-learning-repo",
+  "version": "1.0.0",
+  "description": "A hands-on playground for learning core JavaScript concepts.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "live-server --port=5500 --no-browser",
+    "node": "node"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
