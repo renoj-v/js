@@ -35,12 +35,18 @@ console.log(typeof null); // "object" <- a famous JS quirk, worth remembering!
 // Declare a `const` called `isLearning` and set it to true.
 // Then log its value and its typeof.
 
+const isLearning = true;
+console.log(typeof isLearning);
+
 
 // --- TODO 2 ---
 // Declare a `let` called `temperature` set to 72.
 // Reassign it to 75.
 // Log the final value.
 
+let temperature = 72;
+temperature = 75;
+console.log(temperature);
 
 // --- TODO 3 ---
 // Try reassigning `playerName` above (uncomment the line below)
@@ -49,15 +55,18 @@ console.log(typeof null); // "object" <- a famous JS quirk, worth remembering!
 //
 // playerName = "Grace";
 
+//playerName = "Grace";
+//throws an error
+
 
 // --- TODO 4 ---
 // Predict the output of the following BEFORE running it,
 // then uncomment and check your prediction:
 //
-// console.log(typeof (10 + "5"));
-// console.log(10 + "5");
-// console.log("10" - 5);
-
+console.log(typeof (10 + "5"));
+console.log(10 + "5");
+console.log("10" - 5);
+console.log("Prediction: string 105 10-5")
 
 // --- output helper for the browser (see index.html) ---
 // If you're running this in the browser, this will also render
