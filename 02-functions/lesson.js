@@ -76,9 +76,15 @@ console.log(describePet("Whiskers", "cat"));
 // Write a function `makeMultiplier(factor)` that RETURNS a new
 // function which multiplies its input by `factor`.
 //
-// const triple = makeMultiplier(3);
-// console.log(triple(5)); // should log 15
+const triple = makeMultiplier(3);
+console.log(triple(5)); // should log 15
 
+
+function makeMultiplier(factor) {
+  return (num) => {
+    return num * factor;
+  }
+}
 
 if (typeof document !== "undefined") {
   const output = document.getElementById("output");
