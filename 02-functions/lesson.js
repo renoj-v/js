@@ -41,18 +41,35 @@ console.log(sum(1, 2, 3, 4)); // 10
 // Write a function `square` (any style you like) that takes a
 // number and returns its square. Log square(6).
 
+function square (x = 0) {
+  return x * x;
+}
+
+console.log(square(6));
 
 // --- TODO 2 ---
 // Write an arrow function `isEven` that takes a number and
 // returns true/false depending on whether it's even.
 // Log isEven(4) and isEven(7).
+ 
+const isEven = (x) => {
+  return x % 2 == 0 ? true : false;
+}
 
-
+console.log(isEven(4));
+console.log(isEven(7));
 // --- TODO 3 ---
 // Write a function `describePet` with a default parameter:
 // describePet(name, kind = "dog") should return
 // e.g. "Rex is a dog" or "Whiskers is a cat" if kind is passed.
 
+
+const describePet = function(name, kind="dog") {
+  return `${name} is a ${kind}`;
+}
+
+console.log(describePet("Rex"));
+console.log(describePet("Whiskers", "cat"));
 
 // --- TODO 4 ---
 // Higher-order functions: functions that take/return functions.
