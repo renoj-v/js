@@ -46,6 +46,15 @@ console.log(counter()); // 3
 // console.log(sayHello("Ada")); // "Hello, Ada!"
 
 
+function makeGreeter(greeting) {
+  return function (name){
+    return `${greeting}, ${name}`;
+  }
+}
+
+const sayHello = makeGreeter("Hello");
+console.log(sayHello("Ada")); // "Hello, Ada!"
+
 // --- TODO 2 ---
 // The classic closure-in-a-loop gotcha. Predict what this logs,
 // then uncomment and run it:
