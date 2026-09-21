@@ -81,7 +81,19 @@ fns2.forEach((fn) => fn())
 // The balance should be private — only accessible through these
 // methods, not directly from outside.
 //
+function makeBankAccount(initialBalance) {
+  let balance = initialBalance;
+  return {
+    deposit: function(amount) {
+      balance += amount;
+    },
+    getBalance: function() {
+      return balance;
+    }
+  }
+}
 const account = makeBankAccount(100);
+console.log(account.balance);
 account.deposit(50);
 console.log(account.getBalance()); // 150
 
