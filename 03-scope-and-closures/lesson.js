@@ -59,15 +59,21 @@ console.log(sayHello("Ada")); // "Hello, Ada!"
 // The classic closure-in-a-loop gotcha. Predict what this logs,
 // then uncomment and run it:
 //
-// const fns = [];
-// for (var i = 0; i < 3; i++) {
-//   fns.push(() => console.log(i));
-// }
-// fns.forEach((fn) => fn()); // what does this print? why?
+console.log ("My guess is 3 3 3");
+const fns = [];
+for (var i = 0; i < 3; i++) {
+  fns.push(() => console.log(i));
+}
+fns.forEach((fn) => fn()); // what does this print? why?
 //
 // Now change `var` to `let` above and run again — what changes,
 // and why? (Hint: it's about scope, not closures themselves.)
-
+console.log ("My guess is 0 1 2");
+const fns2 = [];
+for (let i = 0; i < 3; i++) {
+  fns2.push(() => console.log(i));
+}
+fns2.forEach((fn) => fn())
 
 // --- TODO 3 ---
 // Write a function `makeBankAccount(initialBalance)` that returns
@@ -75,9 +81,9 @@ console.log(sayHello("Ada")); // "Hello, Ada!"
 // The balance should be private — only accessible through these
 // methods, not directly from outside.
 //
-// const account = makeBankAccount(100);
-// account.deposit(50);
-// console.log(account.getBalance()); // 150
+const account = makeBankAccount(100);
+account.deposit(50);
+console.log(account.getBalance()); // 150
 
 
 if (typeof document !== "undefined") {
