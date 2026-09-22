@@ -114,9 +114,16 @@ console.log(gold, silver);  // 98 91
 // Write a function `mergeSettings(defaults, overrides)` that returns
 // a NEW object combining both, where `overrides` wins on conflicts.
 // Use spread — don't mutate either argument.
-//
-// const result = mergeSettings({ theme: "light", fontSize: 14 }, { theme: "dark" });
-// console.log(result); // { theme: "dark", fontSize: 14 }
+
+const mergeSettings = (defaults, overrides) => {
+  return { ...defaults, ...overrides};
+};
+
+const result = mergeSettings({ theme: "light", fontSize: 14 }, { theme: "dark" });
+console.log(result); // { theme: "dark", fontSize: 14 }
+
+
+
 
 // --- TODO 5 ---
 // `originalUser` below has a nested `stats` object. Write a function
