@@ -131,12 +131,20 @@ console.log(result); // { theme: "dark", fontSize: 14 }
 // clone's nested `stats.wins` does NOT affect the original.
 // (Hint: structuredClone(), or spread both the top level and the
 // nested `stats` object.)
-//
-// const clonedUser = deepCloneUser(originalUser);
-// clonedUser.stats.wins = 100;
-// console.log(originalUser.stats.wins); // should still be 5
+
+const deepCloneUser = (user) => {
+  return {
+    ...user,
+    stats: {...user.stats}
+  };
+}
 
 const originalUser = { name: "Ada", stats: { wins: 5, losses: 2 } };
+const clonedUser = deepCloneUser(originalUser);
+clonedUser.stats.wins = 100;
+console.log(originalUser.stats.wins); // should still be 5
+console.log(clonedUser.stats.wins);
+
 
 if (typeof document !== "undefined") {
   const output = document.getElementById("output");
