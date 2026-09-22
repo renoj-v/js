@@ -78,6 +78,7 @@ console.log(original.address.city); // "Paris" — oops, mutated the original to
 // console.log(withTax); // [10.8, 27, 54, 108]
 
 const prices = [10, 25, 50, 100];
+console.log(prices.map((price) => { return price * 1.08; }));
 
 // --- TODO 2 ---
 // Given `products`, find the total value (price * quantity) of all
@@ -91,6 +92,9 @@ const products = [
   { name: "Mouse", price: 20, quantity: 5, inStock: false },
   { name: "Monitor", price: 200, quantity: 2, inStock: true },
 ];
+
+let inStockValue = products.filter(p => p.inStock).reduce((acc, p) => p.price * p.quantity + acc, 0);
+console.log(inStockValue);
 
 // --- TODO 3 ---
 // Destructure `city` and `country` out of `address` below, and
