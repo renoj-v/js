@@ -105,8 +105,11 @@ console.log(inStockValue);
 // console.log(gold, silver);  // 98 91
 
 const address = { street: "221B Baker St", city: "London", country: "UK" };
+const {city,country} = address;
 const topScores = [98, 91, 87, 80];
-
+const [gold,silver] = topScores;
+console.log(city, country); // "London" "UK"
+console.log(gold, silver);  // 98 91
 // --- TODO 4 ---
 // Write a function `mergeSettings(defaults, overrides)` that returns
 // a NEW object combining both, where `overrides` wins on conflicts.
