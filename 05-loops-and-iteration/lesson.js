@@ -121,10 +121,11 @@ const firstPowerOfTwoAbove = function(target) {
   while (num <= target) {
     num *= 2;
   }
+  return num;
 };
 console.log(firstPowerOfTwoAbove(10)); // 16
 console.log(firstPowerOfTwoAbove(200)); // 256
-console.log(firstPowerOfTwoAbove(256)); // 256
+console.log(firstPowerOfTwoAbove(256)); // 512
 
 
 // --- TODO 3 ---
