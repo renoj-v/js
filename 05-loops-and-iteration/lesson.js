@@ -132,31 +132,67 @@ console.log(firstPowerOfTwoAbove(256)); // 512
 // Given `sentence`, use `for...of` to count how many vowels
 // (a, e, i, o, u — case-insensitive) it contains. Store the
 // result in `vowelCount`.
-//
-// const sentence = "The Quick Brown Fox";
-// console.log(vowelCount); // 5
+
+let vowelCount = 0;
+const sentence = "The Quick Brown Fox";
+let vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+for (let char of sentence) {
+  if (vowels.includes(char)) {  
+    vowelCount++;
+  }
+}
+console.log(vowelCount); // 5
 
 // --- TODO 4 ---
 // Given `inventory`, use `for...in` to build a single number,
 // `totalValue`, equal to the sum of (price * quantity) across
 // every item in the object.
-//
-// const inventory = {
-//   widget: { price: 5, quantity: 10 },
-//   gadget: { price: 20, quantity: 3 },
-//   gizmo: { price: 8, quantity: 7 },
-// };
-// console.log(totalValue); // 166
+
+
+
+const inventory = {
+  widget: { price: 5, quantity: 10 },
+  gadget: { price: 20, quantity: 3 },
+  gizmo: { price: 8, quantity: 7 },
+};
+
+let totalValue = 0;
+for (let key in inventory) {
+  let item = inventory[key];
+  totalValue += item.price * item.quantity;
+}
+console.log(totalValue); // 166
 
 // --- TODO 5 ---
 // Write a custom iterable object `evensUpTo` (like `range` above)
 // whose `[Symbol.iterator]` yields only even numbers from 2 up to
 // (and including) `evensUpTo.max`. Use it in a for...of loop and
 // also collect it into an array with spread.
-//
-// evensUpTo.max = 10;
-// for (const n of evensUpTo) console.log(n); // 2 4 6 8 10
-// console.log([...evensUpTo]); // [2, 4, 6, 8, 10]
+
+const evensUpTo = {
+  from:0,
+  max:10,
+  [Symbol.iterator]: function() {
+    let current = this.from;
+    let last = this.max;
+    return {
+      next() {
+        if (current < last) {
+          console.log(current);
+          current +=2
+          return { value: current, done: false};
+        }
+        else {
+          return { value: current, done: true};
+        }
+      }
+    }
+  }
+}
+
+evensUpTo.max = 10;
+for (const n of evensUpTo) console.log(n); // 2 4 6 8 10
+console.log([...evensUpTo]); // [2, 4, 6, 8, 10]
 
 if (typeof document !== "undefined") {
   const output = document.getElementById("output");
