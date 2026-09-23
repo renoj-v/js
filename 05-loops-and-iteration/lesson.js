@@ -29,7 +29,7 @@ while (n > 1) {
   n = n % 2 === 0 ? n / 2 : n * 3 + 1; // Collatz sequence
   console.log(n);
 }
-// while checks the condition BEFORE running the body — it might
+// while checks the condition BEFORE running the body — it might 
 // run zero times.
 
 let attempts = 0;
@@ -101,16 +101,30 @@ console.log([...range]); // [1, 2, 3] — spread also uses the iterator protocol
 // --- TODO 1 ---
 // Write a function `sumTo(n)` that uses a `for` loop to add up
 // every whole number from 1 to n (inclusive) and returns the total.
-//
-// console.log(sumTo(5)); // 15  (1+2+3+4+5)
+
+function sumTo(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum +=i;
+  }
+  return sum;
+}
+console.log(sumTo(5)); // 15  (1+2+3+4+5)
 
 // --- TODO 2 ---
 // Write a function `firstPowerOfTwoAbove(target)` that uses a
 // `while` loop to find and return the smallest power of 2 that is
 // greater than `target`.
-//
-// console.log(firstPowerOfTwoAbove(10)); // 16
-// console.log(firstPowerOfTwoAbove(200)); // 256
+
+const firstPowerOfTwoAbove = function(target) {
+  let num = 1;
+  while (num <= target) {
+    num *= 2;
+  }
+};
+console.log(firstPowerOfTwoAbove(10)); // 16
+console.log(firstPowerOfTwoAbove(200)); // 256
+console.log(firstPowerOfTwoAbove(256)); // 256
 
 // --- TODO 3 ---
 // Given `sentence`, use `for...of` to count how many vowels
