@@ -126,6 +126,7 @@ console.log(firstPowerOfTwoAbove(10)); // 16
 console.log(firstPowerOfTwoAbove(200)); // 256
 console.log(firstPowerOfTwoAbove(256)); // 256
 
+
 // --- TODO 3 ---
 // Given `sentence`, use `for...of` to count how many vowels
 // (a, e, i, o, u — case-insensitive) it contains. Store the
