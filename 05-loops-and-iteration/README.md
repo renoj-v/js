@@ -1,18 +1,18 @@
 # loops-and-iteration — Loops and Iteration
 
-This topic is not fully built out yet, its your turn to extend the pattern
-established in 01-variables-and-types, 02-functions, and
-03-scope-and-closures.
+Loops repeat a block of code until a condition is met. This lesson covers:
 
-Suggested focus for this topic: for, for...of, for...in, while, iterators/iterables.
+- `for` — counter-based looping
+- `while` / `do...while` — condition-based looping
+- `for...of` — iterating values (arrays, strings, and other iterables)
+- `for...in` — iterating an object's enumerable keys
+- `break` / `continue` — controlling loop flow
+- iterators/iterables — the protocol behind `for...of`, and building a custom iterable with `Symbol.iterator`
 
-## To build this lesson yourself:
+## Files
 
-1. Create lesson.js - a commented walkthrough plus a few TODO exercises.
-2. Create solution.js - worked answers to those TODOs.
-3. Create index.html - copy one from an earlier topic and update the title.
-4. Add it to the root PROGRESS.md once you have completed it.
+- `lesson.js` — commented walkthrough plus 5 TODO exercises for you to solve.
+- `solution.js` — worked answers to those TODOs.
+- `index.html` — open in a browser (or use a tool like `live-server`) and check the console for output.
 
-Tip: ask your AI assistant to "build out the lesson.js, solution.js, and
-index.html for 05-loops-and-iteration, following the same style as 01-03" if you want a
-starting draft to edit from.
+Work through `lesson.js` top to bottom, fill in the TODOs, then compare against `solution.js`.
