@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>10 — DOM and Events</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; color: #222; }
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1rem; margin-bottom: 6px; }
+    section { margin-top: 28px; padding-top: 16px; border-top: 1px solid #ddd; }
+    #output { margin-top: 24px; padding: 16px; background: #f4f4f4; border-radius: 8px; font-family: monospace; }
+    p.hint { color: #666; font-size: 0.9rem; }
+    #todo-list { padding-left: 20px; }
+    #todo-list li { cursor: pointer; padding: 2px 0; }
+    #todo-list li.done { text-decoration: line-through; opacity: 0.55; }
+    #outer { padding: 20px; background: #e0e0f0; }
+    #inner { padding: 20px; background: #c8c8e8; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>10 — DOM and Events</h1>
+  <p class="hint">This lesson only runs in a browser — there's no <code>document</code> in Node. Run <code>npm run dev</code>, open this page, check the console, and try clicking things.</p>
+
+  <section>
+    <h2>Greeting</h2>
+    <p id="greeting">Hello, stranger.</p>
+    <button id="greet-btn">Greet Ada</button>
+  </section>
+
+  <section>
+    <h2>Counter</h2>
+    <button id="counter-btn">Clicked 0 times</button>
+  </section>
+
+  <section>
+    <h2>Todo list (click an item to toggle done, event delegation)</h2>
+    <ul id="todo-list">
+      <li>Learn the DOM</li>
+      <li>Learn events</li>
+      <li>Ship it</li>
+    </ul>
+    <form id="todo-form">
+      <input id="todo-input" type="text" placeholder="New item" />
+      <button type="submit">Add</button>
+    </form>
+    <button id="clear-done-btn">Clear done</button>
+  </section>
+
+  <section>
+    <h2>Bubbling</h2>
+    <div id="outer">
+      outer
+      <div id="inner">
+        inner
+        <button id="bubble-btn">Click me</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="output">(waiting for lesson.js to run...)</div>
+
+  <script type="module" src="./lesson.js"></script>
+</body>
+</html>

@@ -1,18 +1,25 @@
 # dom-and-events — DOM and Events
 
-This topic is not fully built out yet, its your turn to extend the pattern
-established in 01-variables-and-types, 02-functions, and
-03-scope-and-closures.
+The DOM is the browser's live, in-memory tree of the page's HTML — JS reads
+and mutates it, and the browser re-renders on change. This lesson covers:
 
-Suggested focus for this topic: Selecting elements, event listeners, event bubbling/delegation, updating the DOM.
+- selecting elements — `querySelector`/`querySelectorAll`, reading/writing `textContent`
+- listeners — `addEventListener`, the event object, `e.target` vs `e.currentTarget`
+- bubbling — how a click travels from the target up through its ancestors, and `e.stopPropagation()`
+- delegation — one listener on a parent instead of one per child, which also covers elements added later
+- mutating the DOM — creating elements, appending/removing them
 
-## To build this lesson yourself:
+Unlike every earlier lesson, this one has **no meaningful Node version** —
+`document` only exists in a browser. Run `npm run dev`, open this folder's
+page, and check the console; the read-through examples fire themselves once
+automatically (via synthetic `.click()`/`dispatchEvent()`) so you get output
+on load, but everything is wired to real listeners too — keep clicking
+around the page.
 
-1. Create lesson.js - a commented walkthrough plus a few TODO exercises.
-2. Create solution.js - worked answers to those TODOs.
-3. Create index.html - copy one from an earlier topic and update the title.
-4. Add it to the root PROGRESS.md once you have completed it.
+## Files
 
-Tip: ask your AI assistant to "build out the lesson.js, solution.js, and
-index.html for 10-dom-and-events, following the same style as 01-03" if you want a
-starting draft to edit from.
+- `lesson.js` — commented walkthrough plus 4 TODO exercises for you to solve.
+- `solution.js` — worked answers to those TODOs.
+- `index.html` — the actual interactive page for this lesson (buttons, a todo list, nested divs for bubbling) — open it via `npm run dev`, not directly as a file.
+
+Work through `lesson.js` top to bottom, fill in the TODOs, then compare against `solution.js`. Note: unlike prior lessons, a blank TODO here won't crash — an unwired listener just silently does nothing, so check the console output against the comments carefully.
