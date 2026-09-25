@@ -1,18 +1,19 @@
 # modules — Modules
 
-This topic is not fully built out yet, its your turn to extend the pattern
-established in 01-variables-and-types, 02-functions, and
-03-scope-and-closures.
+ES modules let you split code across files, each with its own scope — code
+is only shared when explicitly exported and imported. This lesson covers:
 
-Suggested focus for this topic: import/export, default vs named exports, organizing code across files.
+- named imports/exports — `export function foo() {}` / `import { foo } from "./x.js"`, as many per module as you want
+- default exports — `export default ...`, at most one per module, imported without braces under any local name
+- renaming — `import { foo as bar }` to avoid collisions
+- namespace imports — `import * as ns from "./x.js"` for grabbing everything at once, including dynamic lookup by name
+- dynamic `import()` — lazily loading a module at runtime instead of at the top of the file
 
-## To build this lesson yourself:
+## Files
 
-1. Create lesson.js - a commented walkthrough plus a few TODO exercises.
-2. Create solution.js - worked answers to those TODOs.
-3. Create index.html - copy one from an earlier topic and update the title.
-4. Add it to the root PROGRESS.md once you have completed it.
+- `lesson.js` — commented walkthrough plus 5 TODO exercises for you to solve.
+- `solution.js` — worked answers to those TODOs.
+- `index.html` — open in a browser (or use a tool like `live-server`) and check the console for output.
+- `mathUtils.js` / `stringUtils.js` — small "given" library modules that `lesson.js`/`solution.js` import from. You don't need to edit these — open them to see the export side of every import below.
 
-Tip: ask your AI assistant to "build out the lesson.js, solution.js, and
-index.html for 09-modules, following the same style as 01-03" if you want a
-starting draft to edit from.
+Work through `lesson.js` top to bottom, fill in the TODOs, then compare against `solution.js`.
