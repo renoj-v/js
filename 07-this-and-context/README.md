@@ -1,18 +1,17 @@
 # this-and-context — this and Context
 
-This topic is not fully built out yet, its your turn to extend the pattern
-established in 01-variables-and-types, 02-functions, and
-03-scope-and-closures.
+`this` isn't determined by where a function is defined — it's determined by
+how it's CALLED (the call-site). This lesson covers:
 
-Suggested focus for this topic: How this is determined by call-site, arrow functions vs regular functions, call/apply/bind.
+- call-site rules — `obj.method()` vs a bare `fn()` vs `new Fn()`
+- losing `this` — detaching a method, or passing it as a callback
+- arrow functions — no own `this`, inherited lexically from the enclosing scope, and why that's usually wrong for object methods
+- `call`/`apply`/`bind` — explicitly choosing what `this` is, immediately or permanently
 
-## To build this lesson yourself:
+## Files
 
-1. Create lesson.js - a commented walkthrough plus a few TODO exercises.
-2. Create solution.js - worked answers to those TODOs.
-3. Create index.html - copy one from an earlier topic and update the title.
-4. Add it to the root PROGRESS.md once you have completed it.
+- `lesson.js` — commented walkthrough plus 4 TODO exercises for you to solve.
+- `solution.js` — worked answers to those TODOs.
+- `index.html` — open in a browser (or use a tool like `live-server`) and check the console for output.
 
-Tip: ask your AI assistant to "build out the lesson.js, solution.js, and
-index.html for 07-this-and-context, following the same style as 01-03" if you want a
-starting draft to edit from.
+Work through `lesson.js` top to bottom, fill in the TODOs, then compare against `solution.js`.
