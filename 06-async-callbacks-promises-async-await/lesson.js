@@ -150,7 +150,16 @@ function getDataCb(id, callback) {
 }
 
 function getData(id) {
-
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (id > 0) {
+        resolve({id, value: id * 100})
+      }
+      else {
+        reject(new Error(`invalid id: ${id}`));
+      }
+    }, 10);
+  })
 }
 
 getData(2).then((data) => console.log(data)); // { id: 2, value: 200 }
@@ -161,6 +170,12 @@ getData(2).then((data) => console.log(data)); // { id: 2, value: 200 }
 // the sum. (Sequential — each fetch waits for the previous one.)
 
 async function fetchTotalSequential(ids) {
+  let sum = 0;
+  for (let id of ids) {
+    let val = await fetchValue(id);
+    console.log(val);
+    sum += val;
+  }
 
 }
 
