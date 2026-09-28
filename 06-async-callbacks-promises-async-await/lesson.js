@@ -171,12 +171,11 @@ getData(2).then((data) => console.log(data)); // { id: 2, value: 200 }
 
 async function fetchTotalSequential(ids) {
   let sum = 0;
-  for (let id of ids) {
-    let val = await fetchValue(id);
-    console.log(val);
-    sum += val;
+    for (const id of ids) {
+      let val = await fetchValue(id);
+      sum += val;
   }
-
+  return sum;
 }
 
 fetchTotalSequential([1, 2, 3]).then((total) => console.log(total)); // 60
@@ -188,6 +187,14 @@ fetchTotalSequential([1, 2, 3]).then((total) => console.log(total)); // 60
 // but faster since the fetches overlap instead of queuing.
 
 async function fetchTotalConcurrent(ids) {
+  const promises = ids.map(id => fetchValue(id))
+  return Promise.all(promises).then(values => {
+    let sum = 0;
+    for (let val of values) {
+      sum += val;
+    }
+    return sum;
+  })
 
 }
 
@@ -200,7 +207,13 @@ fetchTotalConcurrent([1, 2, 3]).then((total) => console.log(total)); // 60
 // instead of letting it propagate.
 
 async function safeFetchValue(id) {
-
+  try {
+    let val = await fetchValue(id);
+    return val;
+  }
+  catch (err) {
+    return 0;
+  }
 }
 
 safeFetchValue(-1).then((v) => console.log(v)); // 0
@@ -214,7 +227,7 @@ safeFetchValue(5).then((v) => console.log(v)); // 50
 // { status: "rejected", reason }.
 
 async function fetchAllSettled(ids) {
-
+  return await Promise.allSettled(ids.map(id => fetchValue(id)));
 }
 
 fetchAllSettled([1, -1, 2]).then((results) => console.log(results));
