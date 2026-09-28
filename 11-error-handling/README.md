@@ -1,18 +1,19 @@
 # error-handling — Error Handling
 
-This topic is not fully built out yet, its your turn to extend the pattern
-established in 01-variables-and-types, 02-functions, and
-03-scope-and-closures.
+`throw` raises an error, `try/catch` catches it, `finally` runs regardless.
+Async code has its own propagation rules built on the same mechanism. This
+lesson covers:
 
-Suggested focus for this topic: try/catch/finally, throwing custom errors, error types, async error handling.
+- `try`/`catch`/`finally` — and what actually lands in the `catch` variable
+- the anatomy of an `Error` — `.message`, `.name`, `.stack`, and why you should always throw an `Error` (or subclass) instead of a plain value
+- custom error classes — `extends Error` so callers can use `instanceof` to branch on error KIND instead of parsing message strings
+- async error handling — a rejected promise is just an async `throw`; `await` on it throws into a surrounding `try/catch`
+- rethrowing and wrapping — adding context to an error with `{ cause }` (ES2022) instead of swallowing or losing the original
 
-## To build this lesson yourself:
+## Files
 
-1. Create lesson.js - a commented walkthrough plus a few TODO exercises.
-2. Create solution.js - worked answers to those TODOs.
-3. Create index.html - copy one from an earlier topic and update the title.
-4. Add it to the root PROGRESS.md once you have completed it.
+- `lesson.js` — commented walkthrough plus 4 TODO exercises for you to solve.
+- `solution.js` — worked answers to those TODOs.
+- `index.html` — open in a browser (or use a tool like `live-server`) and check the console for output.
 
-Tip: ask your AI assistant to "build out the lesson.js, solution.js, and
-index.html for 11-error-handling, following the same style as 01-03" if you want a
-starting draft to edit from.
+Work through `lesson.js` top to bottom, fill in the TODOs, then compare against `solution.js`. Note: leaving a TODO blank here generally won't crash the script (an unfilled function just returns `undefined`, and nothing throws) — compare the console output against the comments carefully rather than waiting for an error.
