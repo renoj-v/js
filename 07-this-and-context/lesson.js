@@ -146,7 +146,10 @@ brokenTicker.start();
 // detached(); // still works, `this` stays `user`
 
 function bindAll(obj, ...methodNames) {
-
+    methodNames.map(method => {
+      obj[method] = obj[method].bind(obj);
+    });
+    return obj;
 }
 
 const boundUser = bindAll(user, "greet");
