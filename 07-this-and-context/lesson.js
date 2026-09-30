@@ -106,6 +106,10 @@ const counterA = makeCounter(5);
 const counterB = makeCounter(50);
 const counterC = makeCounter(500);
 
+logCount.call(counterA)
+logCount.apply(counterB)
+const boundLog = logCount.bind(counterC);
+boundLog();
 
 
 // --- TODO 2 ---
@@ -118,14 +122,16 @@ const counterC = makeCounter(500);
 const brokenTicker = {
   seconds: 0,
   start() {
-    setTimeout(function () {
+    setTimeout(() => {
       // TODO: this callback needs access to the outer `this`
       this.seconds += 1;
       console.log(`tick: ${this.seconds}`);
     }, 10);
   },
 };
-
+brokenTicker.start();
+brokenTicker.start();
+brokenTicker.start();
 
 
 // --- TODO 3 ---
