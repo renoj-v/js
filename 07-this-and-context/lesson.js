@@ -167,7 +167,12 @@ console.log(detachedBoundGreet()); // "Hi, I'm Ada" — still correct after deta
 // initOnce(); // (nothing)
 
 function once(fn, thisArg) {
-
+  let called = false;
+  return function(args) {
+    if (called) return;
+    fn.apply(thisArg, args);
+    called = true;
+  }
 }
 
 const initOnce = once(function () {
