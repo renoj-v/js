@@ -128,10 +128,12 @@ class Shape {
 // increment function (check with `c1.increment === c2.increment`).
 
 function Counter(start) {
-
+  this.count = start;
 }
-
-
+Counter.prototype.increment = function() {
+  this.count++;
+  return this.count;
+}
 const c1 = new Counter(0);
 const c2 = new Counter(100);
 console.log(c1.increment()); // 1
@@ -146,7 +148,39 @@ console.log(c1.increment === c2.increment); // true — shared via the prototype
 // working via inheritance, calling YOUR area().
 
 class Rectangle extends Shape {
-
+  constructor(w,h) {
+    super("Rectangle");
+    this._width = w;
+    this._height = h;
+  }
+  get width() {
+    return this._width
+  }
+  get height() {
+    return this._height;
+  }
+  set width(w) {
+    if (w <= 0) {
+      throw new Error("width can't be less than or equal to 0")
+    }
+    else {
+      this._width = w;
+    }
+  }
+  set height(h) {
+    if (h <= 0) {
+      throw new Error("height can't be less than or equal to 0")
+    }
+    else {
+      this._height = h;
+    }
+  }
+  area() {
+    return this._width * this._height;
+  }
+  static square(size) {
+    return new Rectangle(size, size);
+  }
 }
 
 const rect = new Rectangle(4, 5);
@@ -157,6 +191,7 @@ console.log(rect instanceof Shape); // true
 // Add a static method `Rectangle.square(size)` (edit the Rectangle
 // class above) that returns a new Rectangle with width and height
 // both equal to `size`.
+
 
 const sq = Rectangle.square(3);
 console.log(sq.area()); // 9
