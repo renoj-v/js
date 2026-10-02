@@ -204,7 +204,25 @@ console.log(sq.area()); // 9
 // `diameter` that updates `radius` accordingly (radius = value / 2).
 
 class Circle extends Shape {
-
+  constructor(rad) {
+    super("Circle")
+    this._r = rad;
+  }
+  get r() {
+    return this._r;
+  }
+  set r(rad) {
+    this._r = rad;
+  }
+  area(){
+    return Math.PI * this._r ** 2
+  }
+  get diameter() {
+    return this._r * 2;
+  }
+  set diameter(dia) {
+    this._r = dia / 2;
+  }
 }
 
 const circle = new Circle(2);
