@@ -137,7 +137,8 @@ console.log(callMathFn("multiply", 4, 5)); // 20
 // console.log(fn("world")); // "World"
 
 async function loadFormatter() {
-
+  let stringUtils = await import("./stringUtils.js");
+  return stringUtils.default;
 }
 
 const fn = await loadFormatter();
