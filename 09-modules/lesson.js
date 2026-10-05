@@ -86,7 +86,7 @@ console.log(Object.keys(mathUtils)); // ["PI", "add", "multiply", "square"]
 // mathUtils.js (don't use Math.PI or the `*` operator directly).
 
 function circleArea(radius) {
-
+  return multiply(multiply(radius,radius), PI);
 }
 
 console.log(circleArea(2).toFixed(2)); // "12.57"
@@ -97,7 +97,7 @@ console.log(circleArea(2).toFixed(2)); // "12.57"
 // import from above).
 
 function sumOfSquares(nums) {
-
+  return nums.reduce((acc, n) => acc + sq(n), 0);
 }
 
 console.log(sumOfSquares([1, 2, 3])); // 14  (1 + 4 + 9)
@@ -107,7 +107,7 @@ console.log(sumOfSquares([1, 2, 3])); // 14  (1 + 4 + 9)
 // and then shouts it (using `shout`), returning the combined result.
 
 function announce(name) {
-
+  return shout(capitalize(name));
 }
 
 console.log(announce("ada")); // "ADA!"
@@ -120,7 +120,7 @@ console.log(announce("ada")); // "ADA!"
 // `multiply` would just be separate local variables.
 
 function callMathFn(fnName, ...args) {
-
+  return mathUtils[fnName].call(this, ...args);
 }
 
 console.log(callMathFn("add", 2, 3)); // 5
