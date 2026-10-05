@@ -151,7 +151,10 @@ class RangeValidationError extends Error {
 // `n <= 0`, and otherwise returns `n` unchanged.
 
 function assertPositive(n) {
-
+  if (n <= 0) {
+    throw new RangeValidationError("not a positive number")
+  }
+  return n;
 }
 
 try {
@@ -167,7 +170,10 @@ try {
 // plain `Error` with the message "division by zero" when `b === 0`.
 
 function safeDivide(a, b) {
-
+  if (b === 0) {
+    throw new Error("division by zero");
+  }
+  return a / b;
 }
 
 console.log(safeDivide(10, 2)); // 5
@@ -184,7 +190,19 @@ try {
 // propagate. (No delay needed between attempts.)
 
 async function fetchWithRetry(fn, attempts) {
-
+  let tries = 0;
+  while (tries < attempts) {
+    try {
+      return await fn();
+    }
+    catch(err) {
+      if (tries >= attempts) {
+        throw err;
+      }
+    }
+    tries++;
+  }
+  return prom;
 }
 
 let calls = 0;
@@ -203,7 +221,13 @@ console.log(calls); // 3
 // error propagate out of `loadUserSafely` itself.
 
 async function loadUserSafely(id) {
-
+  try {
+    let value = findUser(id);
+    return { ok: true, value}
+  }
+  catch (err) {
+    return { ok: false, error: err.message }
+  }
 }
 
 console.log(await loadUserSafely(1)); // { ok: true, value: { id: 1, name: "Ada" } }
