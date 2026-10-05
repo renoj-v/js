@@ -99,6 +99,10 @@ const clearDoneBtn = document.querySelector("#clear-done-btn");
 
 let clickCount = 0;
 
+counterBtn.addEventListener("click", (e) =>{
+  clickCount++;
+  counterBtn.textContent = `Clicked ${clickCount} times`;
+})
 
 
 counterBtn.click();
@@ -113,12 +117,19 @@ console.log(counterBtn.textContent); // "Clicked 2 times"
 // input afterward.
 
 function addTodoItem(text) {
-
+  let li = document.createElement('li');
+  li.textContent = text
+  todoList.appendChild(li);
 }
 
 
 
 todoInput.value = "Ship the DOM lesson";
+todoForm.addEventListener("submit", () => {
+  addTodoItem(todoInput.value);
+  todoInput.value = "";
+});
+
 todoForm.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
 console.log(todoList.lastElementChild.textContent); // "Ship the DOM lesson"
 console.log(todoInput.value); // "" — cleared after adding
@@ -128,10 +139,10 @@ console.log(todoInput.value); // "" — cleared after adding
 // from `todoList`. Wire `clearDoneBtn`'s click listener to call it.
 
 function clearDoneItems() {
-
+  todoList.querySelectorAll(".done").forEach(li => li.remove());
 }
 
-
+clearDoneBtn.addEventListener("click", clearDoneItems);
 
 clearDoneBtn.click();
 console.log(todoList.querySelectorAll("li.done").length); // 0 — the one toggled above is gone
@@ -143,6 +154,9 @@ console.log(todoList.querySelectorAll("li.done").length); // 0 — the one toggl
 // from reaching ANCESTOR elements, not sibling listeners here.
 
 
+document.querySelector("#bubble-btn").addEventListener("click", (e) => {
+  e.stopPropagation();
+});
 
 document.querySelector("#bubble-btn").click();
 // only "button handler" logs this time — no "inner handler"/
