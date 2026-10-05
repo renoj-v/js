@@ -106,7 +106,10 @@ console.log(retries); // 0
 // -> "Total: $19.50, plus tax: $1.23"
 
 function price(strings, ...values) {
-
+  return strings.reduce((result, str, i) => {
+    let value = values[i] !== undefined ?  values[i] : "";
+    return result + str + value;
+  }, "");
 }
 
 console.log(price`Total: ${19.5}, plus tax: ${1.234}`); // "Total: $19.50, plus tax: $1.23"
@@ -118,7 +121,8 @@ console.log(price`Total: ${19.5}, plus tax: ${1.234}`); // "Total: $19.50, plus 
 // nullish coalescing — no manual if/else checks.
 
 function getTwitterHandle(someUser) {
-
+  let val = someUser.profile?.social?.twitter;
+  return  val !== undefined ? val : "no twitter";
 }
 
 console.log(getTwitterHandle(user)); // "@ada"
@@ -130,8 +134,8 @@ console.log(getTwitterHandle(emptyUser)); // "no twitter"
 // `makePoint({ x: 5 })` gets `y: 0`, not a crash), and returns the
 // string `(x, y)`.
 
-function makePoint({ x, y } = {}) {
-
+function makePoint({ x, y } = { x:0 , y:0}) {
+  return `(${x}, ${y})`;
 }
 
 console.log(makePoint({ x: 5, y: 9 })); // "(5, 9)"
