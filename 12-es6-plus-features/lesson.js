@@ -149,7 +149,9 @@ console.log(makePoint()); // "(0, 0)"
 // `0` should be left alone. Return `config`.
 
 function ensureDefaults(config) {
-
+  config.timeout ??= 3000;
+  config.retries ??= 3;
+  return config;
 }
 
 console.log(ensureDefaults({ retries: 0 })); // { retries: 0, timeout: 3000 }
